@@ -18,6 +18,7 @@ import {
   ReloadInstructions,
 } from 'react-native/Libraries/NewAppScreen';
 import AntDesign from "react-native-vector-icons/AntDesign"
+import HomeScreen from './src/screens/HomeScreen';
 
 const App: () => Node = () => {
   const isDarkMode = useColorScheme() === 'dark';
@@ -29,7 +30,7 @@ const App: () => Node = () => {
   return (
     <SafeAreaView style={backgroundStyle}>
       <StatusBar barStyle={isDarkMode ? 'light-content' : 'dark-content'} />
-      <Text>Helloooo</Text>
+      <HomeScreen/>
     </SafeAreaView>
   );
 };
