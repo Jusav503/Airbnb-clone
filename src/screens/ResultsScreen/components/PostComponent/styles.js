@@ -3,8 +3,10 @@ import {StyleSheet} from 'react-native';
 const styles = StyleSheet.create({
   container: {
     padding: 15,
-    borderWidth: 1,
-    borderColor: 'red',
+    alignItems: 'center',
+    borderColor: 'grey',
+    borderBottomWidth: 0.2,
+    borderRadius: 10,
   },
   favoriteIcon: {
     position: 'absolute',
