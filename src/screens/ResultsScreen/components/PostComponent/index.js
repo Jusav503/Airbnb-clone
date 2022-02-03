@@ -28,8 +28,6 @@ const PostComponent = (props) => {
         <Text style={styles.priceText}>${newPrice} / night</Text>
         <Text style={styles.totalPriceText}>${totalPrice} Total</Text>
       </View>
-
-      <View style={styles.separator} />
     </View>
   );
 };
