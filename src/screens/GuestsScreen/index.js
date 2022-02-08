@@ -1,8 +1,18 @@
-import {View, Text, StyleSheet, Dimensions, TouchableOpacity} from 'react-native';
-import React from 'react';
+import {
+  View,
+  Text,
+  StyleSheet,
+  Dimensions,
+  TouchableOpacity,
+} from 'react-native';
+import React, {useState} from 'react';
 import AntDesign from 'react-native-vector-icons/AntDesign';
 
 const GuestsScreen = () => {
+  const [adults, setAdults] = useState(0);
+  const [childrens, setChildrens] = useState(0);
+  const [infants, setInfants] = useState(0);
+
   return (
     <View>
       <View style={styles.headerContainer}>
@@ -19,14 +29,15 @@ const GuestsScreen = () => {
             <Text style={styles.principalTitle}>Adults</Text>
             <Text>Ages 13 or above</Text>
           </View>
-
           <View style={styles.quantityContainer}>
-            <TouchableOpacity style={styles.menusPlusIconContainer}>
-              <Text style={styles.menusPlusIcon}>-</Text>
+            <TouchableOpacity onPress={() => setAdults(Math.max(0, adults - 1))}>
+              <AntDesign name="minuscircleo" size={25} style={{opacity: adults ? 1 : 0.3}}/>
             </TouchableOpacity>
-            <Text style={{fontSize:25}}>0</Text>
-            <TouchableOpacity style={styles.menusPlusIconContainer}>
-              <Text style={styles.menusPlusIcon}>+</Text>
+
+            <Text style={{fontSize: 20, marginHorizontal: 10}}>{adults}</Text>
+
+            <TouchableOpacity onPress={() => setAdults(Math.max(adults + 1))}>
+              <AntDesign name="pluscircleo" size={25}/>
             </TouchableOpacity>
           </View>
         </View>
@@ -36,14 +47,15 @@ const GuestsScreen = () => {
             <Text style={styles.principalTitle}>Children</Text>
             <Text>Ages 2-12</Text>
           </View>
-
           <View style={styles.quantityContainer}>
-            <TouchableOpacity style={styles.menusPlusIconContainer}>
-              <Text style={styles.menusPlusIcon}>-</Text>
+            <TouchableOpacity onPress={() => setChildrens(Math.max(0, childrens - 1))}>
+              <AntDesign name="minuscircleo" size={25} style={{opacity: childrens ? 1 : 0.3}}/>
             </TouchableOpacity>
-            <Text style={{fontSize:25}}>0</Text>
-            <TouchableOpacity style={styles.menusPlusIconContainer}>
-              <Text style={styles.menusPlusIcon}>+</Text>
+
+            <Text style={{fontSize: 20, marginHorizontal: 10}}>{childrens}</Text>
+
+            <TouchableOpacity onPress={() => setChildrens(Math.max(childrens + 1))}>
+              <AntDesign name="pluscircleo" size={25}/>
             </TouchableOpacity>
           </View>
         </View>
@@ -53,14 +65,15 @@ const GuestsScreen = () => {
             <Text style={styles.principalTitle}>Infants</Text>
             <Text>Under 2</Text>
           </View>
-
           <View style={styles.quantityContainer}>
-            <TouchableOpacity style={styles.menusPlusIconContainer}>
-              <Text style={styles.menusPlusIcon}>-</Text>
+            <TouchableOpacity onPress={() => setInfants(Math.max(0, infants - 1))}>
+              <AntDesign name="minuscircleo" size={25} style={{opacity: infants ? 1 : 0.3}}/>
             </TouchableOpacity>
-            <Text style={{fontSize:25}}>0</Text>
-            <TouchableOpacity style={styles.menusPlusIconContainer}>
-              <Text style={styles.menusPlusIcon}>+</Text>
+
+            <Text style={{fontSize: 20, marginHorizontal: 10}}>{infants}</Text>
+
+            <TouchableOpacity onPress={() => setInfants(Math.max(infants + 1))}>
+              <AntDesign name="pluscircleo" size={25}/>
             </TouchableOpacity>
           </View>
         </View>
@@ -89,7 +102,7 @@ const styles = StyleSheet.create({
   mainContainer: {
     padding: 10,
   },
-  section: { 
+  section: {
     padding: 20,
     flexDirection: 'row',
     borderTopWidth: 0.2,
@@ -97,28 +110,13 @@ const styles = StyleSheet.create({
     borderTopColor: 'grey',
     borderBottomColor: 'grey',
   },
-  infoContainer:{
-    flex:2,
+  infoContainer: {
+    flex: 2,
   },
   quantityContainer: {
-    flex:1,
+    flex: 1,
     flexDirection: 'row',
     alignItems: 'center',
-  },
-  menusPlusIconContainer: {
-    borderRadius: 55,
-    borderWidth: 1,
-    width: 30,
-    height: 30,
-    justifyContent: 'center',
-    alignItems: 'center',
-    borderColor: 'grey',
-    marginHorizontal: 10,
-  },
-  menusPlusIcon: {
-    color: 'grey',
-    fontSize: 20,
-    fontWeight: 'bold',
   },
 });
 
