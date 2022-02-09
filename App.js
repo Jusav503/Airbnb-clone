@@ -4,17 +4,17 @@ import {
   View,
   useColorScheme,
 } from 'react-native';
-import SearchScreen from './src/screens/SearchScreen';
-import HomeScreen from './src/screens/HomeScreen';
-import GuestsScreen from './src/screens/GuestsScreen';
+import Navigation from './src/navigation';
+import 'react-native-gesture-handler';
+import { NavigationContainer } from '@react-navigation/native';
 
 const App: () => Node = () => {
   const isDarkMode = useColorScheme() === 'dark';
 
   return (
-    <View>
-      <GuestsScreen/>
-    </View>
+    <NavigationContainer>
+      <Navigation/>
+    </NavigationContainer>
   );
 };
 

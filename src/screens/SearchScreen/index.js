@@ -5,6 +5,7 @@ import search from '../../../assets/dummyData/search';
 import DropdownResults from './components/DropdownResults';
 
 const SearchScreen = () => {
+  
   return (
     <View>
       <ScrollView>

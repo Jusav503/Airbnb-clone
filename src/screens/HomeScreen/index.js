@@ -11,12 +11,12 @@ import styles from './styles';
 import {SearchBar} from 'react-native-elements';
 
 const HomeScreen = () => {
+  console.log("home")
   return (
     <View>
       <ImageBackground
         source={require('../../../assets/images/wallpaper.jpg')}
         style={styles.container}>
-        
         <ScrollView>
           <SearchBar
             placeholder="Where are you going?"
