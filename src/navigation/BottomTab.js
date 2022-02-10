@@ -15,7 +15,7 @@ const BottomTab = () => {
     <Tab.Navigator
       screenOptions={{
         headerShown: false,
-        tabBarActiveTintColor: 'black',
+        tabBarActiveTintColor: 'red',
         tabBarLabelStyle: {fontSize: 12, fontWeight: 'bold', paddingBottom: 5},
       }}>
       <Tab.Screen

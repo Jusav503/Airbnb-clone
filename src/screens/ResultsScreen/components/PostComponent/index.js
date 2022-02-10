@@ -23,7 +23,7 @@ const PostComponent = (props) => {
       </TouchableOpacity>
 
       <View style={styles.infoContainer}>
-        <Text style={styles.smallText}>{bed}bed · {bedroom}bedroom</Text>
+        <Text>{bed}bed · {bedroom}bedroom</Text>
         <Text style={styles.principalText} numberOfLines={2}>{type} · {title}</Text>
         <Text style={styles.priceText}>${newPrice} / night</Text>
         <Text style={styles.totalPriceText}>${totalPrice} Total</Text>

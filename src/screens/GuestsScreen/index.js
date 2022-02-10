@@ -2,26 +2,23 @@ import {
   View,
   Text,
   StyleSheet,
-  Dimensions,
   TouchableOpacity,
+  Button,
 } from 'react-native';
 import React, {useState} from 'react';
 import AntDesign from 'react-native-vector-icons/AntDesign';
+import Header from '../../components/Header';
+import { useNavigation } from '@react-navigation/native';
 
 const GuestsScreen = () => {
   const [adults, setAdults] = useState(0);
   const [childrens, setChildrens] = useState(0);
   const [infants, setInfants] = useState(0);
 
+  const navigation = useNavigation()
   return (
     <View>
-      <View style={styles.headerContainer}>
-        <AntDesign name="left" size={25} />
-        <View style={{alignItems: 'center', marginHorizontal: '20%'}}>
-          <Text style={styles.principalTitle}>Tenerife, Spain</Text>
-          <Text>11-14 Dec</Text>
-        </View>
-      </View>
+      <Header title="Tenerife, Spain" subtitle="11-14 Dec" />
 
       <View style={styles.mainContainer}>
         <View style={styles.section}>
@@ -77,21 +74,17 @@ const GuestsScreen = () => {
             </TouchableOpacity>
           </View>
         </View>
+
+        <Button
+          title="Search"
+          onPress={()=>navigation.navigate("Results")}
+        />
       </View>
     </View>
   );
 };
 
-const WIDTH = Dimensions.get('window').width;
-const HEIGHT = Dimensions.get('window').height;
-const styles = StyleSheet.create({
-  headerContainer: {
-    flexDirection: 'row',
-    padding: 20,
-    alignItems: 'center',
-    justifyContent: 'flex-start',
-    width: WIDTH,
-  },
+const styles = StyleSheet.create({  
   principalTitle: {
     fontWeight: 'bold',
     fontSize: 18,

@@ -18,18 +18,15 @@ const styles = StyleSheet.create({
     aspectRatio: 3 / 2,
     borderRadius: 10,
   },
-  smallText: {
-    color: 'grey',
-  },
   infoContainer: {
     paddingTop: 10,
     paddingHorizontal: 5,
   },
   principalText: {
-    color: 'white',
+    color:"black",
     fontSize: 19,
   },
-  priceText: {color: 'white', fontWeight: 'bold', fontSize: 20},
+  priceText: { fontWeight: 'bold', fontSize: 18},
   totalPriceText: {fontWeight: 'bold', textDecorationLine: 'underline'},
 });
 export default styles;
