@@ -1,33 +1,28 @@
-import {View, Text, ScrollView, TouchableOpacity, FlatList} from 'react-native';
+import {View, ScrollView} from 'react-native';
 import React from 'react';
-import {SearchBar} from 'react-native-elements/dist/searchbar/SearchBar';
-import search from '../../../assets/dummyData/search';
-import DropdownResults from './components/DropdownResults';
+import {GooglePlacesAutocomplete} from 'react-native-google-places-autocomplete';
+import SuggestionSearch from './components/SuggestionSearch';
 
 const SearchScreen = () => {
-  
   return (
-    <View>
-      <ScrollView>
-        <SearchBar
-          placeholder="Where are you going?"
-          round={true}
-          containerStyle={{
-            backgroundColor: 'white',
-            borderTopWidth: 0,
-            borderBottomWidth: 0,
-          }}
-          searchIcon={{color: 'red'}}
-        />
-      </ScrollView>
-
-      <View>
-        <FlatList
-          data={search}
-          renderItem={({item}) => <DropdownResults title={item} />}
-          keyExtractor={item => item.id}
-        />
-      </View>
+    <View style={{flex:1}}>
+      <GooglePlacesAutocomplete
+        placeholder="Where are you going?"
+        onPress={(data, details = null) => {
+          // 'details' is provided when fetchDetails = true
+          console.log(data, details);
+        }}
+        query={{
+          key: 'AIzaSyCB9iarDoL9LLLSKQdWH13vt-fUDDw8vBk',
+          language: 'en',
+          type: '(cities)',
+        }}
+        renderRow={item => <SuggestionSearch item={item} />}
+        styles={{
+          textInputContainer: {paddingHorizontal: 10, paddingTop: 10},
+          separator: {height: 0},
+        }}
+      />
     </View>
   );
 };

@@ -3,8 +3,7 @@ import React from 'react';
 import MaterialIcons from 'react-native-vector-icons/MaterialIcons';
 import {useNavigation} from '@react-navigation/native';
 
-const DropdownResults = props => {
-  const {description} = props.title;
+const SuggestionSearch = ({item}) => {
   const navigation = useNavigation();
 
   return (
@@ -14,7 +13,7 @@ const DropdownResults = props => {
           <MaterialIcons name="location-pin" color="grey" size={20} />
         </View>
         <View style={styles.descriptionContainer}>
-          <Text numberOfLines={1}>{description}</Text>
+          <Text numberOfLines={1}>{item.description}</Text>
         </View>
       </View>
     </TouchableOpacity>
@@ -25,8 +24,6 @@ const styles = StyleSheet.create({
   container: {
     flexDirection: 'row',
     alignItems: 'center',
-    paddingHorizontal: 40,
-    paddingVertical: 10,
     backgroundColor: 'white',
   },
   iconContainer: {
@@ -37,4 +34,4 @@ const styles = StyleSheet.create({
   },
 });
 
-export default DropdownResults;
+export default SuggestionSearch;
