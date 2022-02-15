@@ -1,22 +1,18 @@
-import {View, Text, StyleSheet, TouchableOpacity} from 'react-native';
+import {View, Text, StyleSheet} from 'react-native';
 import React from 'react';
 import MaterialIcons from 'react-native-vector-icons/MaterialIcons';
-import {useNavigation} from '@react-navigation/native';
 
 const SuggestionSearch = ({item}) => {
-  const navigation = useNavigation();
 
   return (
-    <TouchableOpacity onPress={() => navigation.navigate("Guests")}>
-      <View style={styles.container}>
-        <View style={styles.iconContainer}>
-          <MaterialIcons name="location-pin" color="grey" size={20} />
-        </View>
-        <View style={styles.descriptionContainer}>
-          <Text numberOfLines={1}>{item.description}</Text>
-        </View>
+    <View style={styles.container}>
+      <View style={styles.iconContainer}>
+        <MaterialIcons name="location-pin" color="grey" size={20} />
       </View>
-    </TouchableOpacity>
+      <View style={styles.descriptionContainer}>
+        <Text numberOfLines={1} style={{color:"grey"}}>{item.description}</Text>
+      </View>
+    </View>
   );
 };
 

@@ -9,11 +9,11 @@ const Header = ({title, subtitle}) => {
   return (
     <View style={styles.headerContainer}>
       <TouchableOpacity onPress={() => navigation.goBack()}>
-        <AntDesign name="left" size={25} />
+        <AntDesign name="left" size={25} color="black" />
       </TouchableOpacity>
       <View style={{alignItems: 'center', marginHorizontal: '20%'}}>
         <Text style={styles.principalTitle}>{title}</Text>
-        <Text>{subtitle}</Text>
+        <Text style={{color:"grey"}}>{subtitle}</Text>
       </View>
     </View>
   );

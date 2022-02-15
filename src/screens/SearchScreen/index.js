@@ -1,16 +1,21 @@
-import {View, ScrollView} from 'react-native';
+import {View} from 'react-native';
 import React from 'react';
 import {GooglePlacesAutocomplete} from 'react-native-google-places-autocomplete';
 import SuggestionSearch from './components/SuggestionSearch';
+import {useNavigation} from '@react-navigation/native';
+import { colors } from 'react-native-elements';
 
 const SearchScreen = () => {
+  const navigation = useNavigation();
   return (
     <View style={{flex:1}}>
       <GooglePlacesAutocomplete
+        placeholderTextColor={colors.grey1}
         placeholder="Where are you going?"
         onPress={(data, details = null) => {
           // 'details' is provided when fetchDetails = true
           console.log(data, details);
+          navigation.navigate("Guests")
         }}
         query={{
           key: 'AIzaSyCB9iarDoL9LLLSKQdWH13vt-fUDDw8vBk',
@@ -21,6 +26,7 @@ const SearchScreen = () => {
         styles={{
           textInputContainer: {paddingHorizontal: 10, paddingTop: 10},
           separator: {height: 0},
+          textInput:{color:"grey"},
         }}
       />
     </View>

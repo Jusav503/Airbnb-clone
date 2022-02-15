@@ -6,7 +6,7 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     borderColor: 'grey',
     borderBottomWidth: 0.2,
-    borderRadius: 10,
+    borderRadius: 15,
   },
   favoriteIcon: {
     position: 'absolute',
@@ -26,7 +26,7 @@ const styles = StyleSheet.create({
     color:"black",
     fontSize: 19,
   },
-  priceText: { fontWeight: 'bold', fontSize: 18},
-  totalPriceText: {fontWeight: 'bold', textDecorationLine: 'underline'},
+  priceText: { color:"grey", fontWeight: 'bold', fontSize: 18},
+  totalPriceText: {color:"grey", fontWeight: 'bold', textDecorationLine: 'underline'},
 });
 export default styles;

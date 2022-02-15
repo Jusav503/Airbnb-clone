@@ -24,17 +24,17 @@ const GuestsScreen = () => {
         <View style={styles.section}>
           <View style={styles.infoContainer}>
             <Text style={styles.principalTitle}>Adults</Text>
-            <Text>Ages 13 or above</Text>
+            <Text style={{color:"grey"}}>Ages 13 or above</Text>
           </View>
           <View style={styles.quantityContainer}>
             <TouchableOpacity onPress={() => setAdults(Math.max(0, adults - 1))}>
-              <AntDesign name="minuscircleo" size={25} style={{opacity: adults ? 1 : 0.3}}/>
+              <AntDesign name="minuscircleo" size={23} style={{opacity: adults ? 1 : 0.3, color:"black"}}/>
             </TouchableOpacity>
 
-            <Text style={{fontSize: 20, marginHorizontal: 10}}>{adults}</Text>
+            <Text style={{fontSize: 20, marginHorizontal: 10, color:"black"}}>{adults}</Text>
 
             <TouchableOpacity onPress={() => setAdults(Math.max(adults + 1))}>
-              <AntDesign name="pluscircleo" size={25}/>
+              <AntDesign name="pluscircleo" size={23} style={{color:"black"}}/>
             </TouchableOpacity>
           </View>
         </View>
@@ -42,17 +42,17 @@ const GuestsScreen = () => {
         <View style={styles.section}>
           <View style={styles.infoContainer}>
             <Text style={styles.principalTitle}>Children</Text>
-            <Text>Ages 2-12</Text>
+            <Text style={{color:"grey"}}>Ages 2-12</Text>
           </View>
           <View style={styles.quantityContainer}>
             <TouchableOpacity onPress={() => setChildrens(Math.max(0, childrens - 1))}>
-              <AntDesign name="minuscircleo" size={25} style={{opacity: childrens ? 1 : 0.3}}/>
+              <AntDesign name="minuscircleo" size={23} style={{opacity: childrens ? 1 : 0.3, color:"black"}}/>
             </TouchableOpacity>
 
-            <Text style={{fontSize: 20, marginHorizontal: 10}}>{childrens}</Text>
+            <Text style={{fontSize: 20, marginHorizontal: 10, color:"black"}}>{childrens}</Text>
 
             <TouchableOpacity onPress={() => setChildrens(Math.max(childrens + 1))}>
-              <AntDesign name="pluscircleo" size={25}/>
+              <AntDesign name="pluscircleo" size={23} color="black"/>
             </TouchableOpacity>
           </View>
         </View>
@@ -60,17 +60,17 @@ const GuestsScreen = () => {
         <View style={styles.section}>
           <View style={styles.infoContainer}>
             <Text style={styles.principalTitle}>Infants</Text>
-            <Text>Under 2</Text>
+            <Text style={{color:"grey"}}>Under 2</Text>
           </View>
           <View style={styles.quantityContainer}>
             <TouchableOpacity onPress={() => setInfants(Math.max(0, infants - 1))}>
-              <AntDesign name="minuscircleo" size={25} style={{opacity: infants ? 1 : 0.3}}/>
+              <AntDesign name="minuscircleo" size={23} style={{opacity: infants ? 1 : 0.3, color:"black"}}/>
             </TouchableOpacity>
 
-            <Text style={{fontSize: 20, marginHorizontal: 10}}>{infants}</Text>
+            <Text style={{fontSize: 20, marginHorizontal: 10, color:"black"}}>{infants}</Text>
 
             <TouchableOpacity onPress={() => setInfants(Math.max(infants + 1))}>
-              <AntDesign name="pluscircleo" size={25}/>
+              <AntDesign name="pluscircleo" size={23} color="black"/>
             </TouchableOpacity>
           </View>
         </View>
@@ -99,9 +99,10 @@ const styles = StyleSheet.create({
     padding: 20,
     flexDirection: 'row',
     borderTopWidth: 0.2,
-    borderBottomWidth: 0.2,
+    borderBottomWidth: 0.1,
     borderTopColor: 'grey',
     borderBottomColor: 'grey',
+    borderRadius: 15,
   },
   infoContainer: {
     flex: 2,
