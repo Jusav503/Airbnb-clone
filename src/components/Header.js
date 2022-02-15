@@ -26,7 +26,7 @@ const WIDTH = Dimensions.get('window').width
 const styles = StyleSheet.create({
   headerContainer: {
     flexDirection: 'row',
-    padding: 20,
+    padding: 15,
     alignItems: 'center',
     justifyContent: 'flex-start',
     width: WIDTH,

@@ -18,7 +18,7 @@ const SearchScreen = () => {
           navigation.navigate("Guests")
         }}
         query={{
-          key: 'AIzaSyCB9iarDoL9LLLSKQdWH13vt-fUDDw8vBk',
+          key: 'AIzaSyCriKhEFH4n8QNd0VrFPIW4FgwuQmWhVBQ',
           language: 'en',
           type: '(cities)',
         }}
