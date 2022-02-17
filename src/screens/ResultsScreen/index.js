@@ -1,29 +1,42 @@
-import { View, FlatList } from 'react-native';
+import {View, FlatList} from 'react-native';
 import React from 'react';
+import MapView, {PROVIDER_GOOGLE} from 'react-native-maps';
+import {useState} from 'react';
+
 import PostComponent from './components/PostComponent';
-import feed from '../../../assets/dummyData/feed';
+import places from '../../../assets/dummyData/feed';
 import Header from '../../components/Header';
-import MapView from 'react-native-maps';
+import MarkerComponent from './components/MarkerComponent';
 
 const ResultsScreen = () => {
+  const [selectedPlaceId, setSelectedPlaceId] = useState(null);
+
   return (
-    <View style={{width:"100%", height:"100%"}}>
-      <Header/>
+    <View style={{width: '100%', height: '100%'}}>
+      <Header />
       {/* <FlatList
         data={feed}
         renderItem={({item}) => <PostComponent post={item} />}
         keyExtractor={item => item.id}
       /> */}
-
       <MapView
-        style={{flex:1,}}
+        style={{flex: 1}}
+        provider={PROVIDER_GOOGLE}
         initialRegion={{
-          latitude: 37.78825,
-          longitude: -122.4324,
-          latitudeDelta: 0.0922,
-          longitudeDelta: 0.0421,
-        }}
-      />
+          latitude: 28.3279822,
+          longitude: -16.5124847,
+          latitudeDelta: 0.8,
+          longitudeDelta: 0.8,
+        }}>
+        {places.map(place => (
+          <MarkerComponent
+            coordinate={place.coordinate}
+            price={place.newPrice}
+            isSelected={place.id === selectedPlaceId}
+            onPress={() => setSelectedPlaceId(place.id)}
+          />
+        ))}
+      </MapView>
     </View>
   );
 };
