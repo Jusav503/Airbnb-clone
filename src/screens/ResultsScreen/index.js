@@ -7,6 +7,7 @@ import PostComponent from './components/PostComponent';
 import places from '../../../assets/dummyData/feed';
 import Header from '../../components/Header';
 import MarkerComponent from './components/MarkerComponent';
+import ListPostComponent from './components/ListPostComponent';
 
 const ResultsScreen = () => {
   const [selectedPlaceId, setSelectedPlaceId] = useState(null);
@@ -37,6 +38,9 @@ const ResultsScreen = () => {
           />
         ))}
       </MapView>
+      <View style={{position: 'absolute', bottom: 25, left:10}}>
+        <ListPostComponent post={places[1]} />
+      </View>
     </View>
   );
 };
