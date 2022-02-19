@@ -46,12 +46,13 @@ export default ListPostComponent;
 const WIDTH = Dimensions.get('window').width;
 const styles = StyleSheet.create({
   container: {
-    width: WIDTH - 55,
+    width: WIDTH - 70,
     alignItems: 'center',
-    borderRadius: 15,
+    borderRadius: 10,
     backgroundColor: 'white',
     flexDirection: 'row',
     overflow: 'hidden',
+    marginLeft:15
   },
   favoriteIcon: {},
   image: {
@@ -63,7 +64,7 @@ const styles = StyleSheet.create({
   },
   principalText: {
     color: 'black',
-    width:WIDTH-175,
+    width:WIDTH-180,
   },
   priceText: {color: 'grey', fontWeight: 'bold'},
   totalPriceText: {

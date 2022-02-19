@@ -38,8 +38,13 @@ const ResultsScreen = () => {
           />
         ))}
       </MapView>
-      <View style={{position: 'absolute', bottom: 25, left:10}}>
-        <ListPostComponent post={places[1]} />
+      <View style={{position: 'absolute', bottom: 30, }}>
+        <FlatList
+          data={places}
+          renderItem={ ({item}) => <ListPostComponent post={item}/>}
+          horizontal
+          showsHorizontalScrollIndicator={false}
+        />
       </View>
     </View>
   );
