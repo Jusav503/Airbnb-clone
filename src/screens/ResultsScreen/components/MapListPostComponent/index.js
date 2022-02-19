@@ -52,7 +52,7 @@ const styles = StyleSheet.create({
     backgroundColor: 'white',
     flexDirection: 'row',
     overflow: 'hidden',
-    marginLeft:15
+    marginLeft: 15,
   },
   favoriteIcon: {},
   image: {
@@ -64,7 +64,7 @@ const styles = StyleSheet.create({
   },
   principalText: {
     color: 'black',
-    width:WIDTH-180,
+    width: WIDTH - 180,
   },
   priceText: {color: 'grey', fontWeight: 'bold'},
   totalPriceText: {
