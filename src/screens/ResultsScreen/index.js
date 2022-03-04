@@ -68,6 +68,7 @@ const ResultsScreen = () => {
         <FlatList
           ref={flatlist}
           data={places}
+          keyExtractor={item => item.id}
           horizontal
           snapToInterval={WIDTH - 70}
           decelerationRate={'fast'}

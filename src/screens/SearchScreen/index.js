@@ -1,9 +1,10 @@
 import {View} from 'react-native';
 import React from 'react';
-import {GooglePlacesAutocomplete} from 'react-native-google-places-autocomplete';
-import SuggestionSearch from './components/SuggestionSearch';
 import {useNavigation} from '@react-navigation/native';
 import { colors } from 'react-native-elements';
+import {GooglePlacesAutocomplete} from 'react-native-google-places-autocomplete';
+
+import SuggestionSearch from './components/SuggestionSearch';
 
 const SearchScreen = () => {
   const navigation = useNavigation();
