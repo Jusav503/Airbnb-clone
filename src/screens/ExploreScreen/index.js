@@ -1,5 +1,5 @@
 import {StyleSheet, Text, View, FlatList} from 'react-native';
-import React from 'react';
+import React, {useState, useEffect} from 'react';
 import feed from '../../../assets/dummyData/feed';
 import PostComponent from '../../components/Post/PostComponent';
 
@@ -9,6 +9,7 @@ const ExploreScreen = () => {
       <FlatList
         data={feed}
         renderItem={({item}) => <PostComponent post={item} />}
+        keyExtractor={item => item.id.toString()}
       />
     </View>
   );
