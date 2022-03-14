@@ -1,8 +1,9 @@
 import {View, FlatList, Dimensions} from 'react-native';
 import MapView, {PROVIDER_GOOGLE} from 'react-native-maps';
 import React, {useState, useEffect, useRef} from 'react';
+import {API, graphqlOperation} from 'aws-amplify';
+import {listPosts} from '../../graphql/queries';
 
-import places from '../../../assets/dummyData/feed';
 import Header from '../../components/Header';
 import MarkerComponent from './components/MarkerComponent';
 import MapListPostComponent from './components/MapListPostComponent';
@@ -11,6 +12,21 @@ const ResultsScreen = () => {
   const [selectedPlaceId, setSelectedPlaceId] = useState(null);
   const flatlist = useRef();
   const map = useRef();
+
+  const [posts, setPosts] = useState([]);
+
+  useEffect(() => {
+    const fetchPosts = async () => {
+      try {
+        const fetchedPosts = await API.graphql(graphqlOperation(listPosts));
+        setPosts(fetchedPosts.data.listPosts.items);
+      } catch (e) {
+        console.log(e);
+      }
+    };
+
+    fetchPosts();
+  }, []);
 
   const viewConfig = useRef({
     waitForInteraction: false,
@@ -27,13 +43,13 @@ const ResultsScreen = () => {
     if (!selectedPlaceId || !flatlist) {
       return;
     }
-    const index = places.findIndex(place => place.id === selectedPlaceId);
+    const index = posts.findIndex(place => place.id === selectedPlaceId);
     flatlist.current.scrollToIndex({index});
 
-    const selectedPlace = places[index];
+    const selectedPlace = posts[index];
     const region = {
-      latitude: selectedPlace.coordinate.latitude,
-      longitude: selectedPlace.coordinate.longitude,
+      latitude: selectedPlace.latitude,
+      longitude: selectedPlace.longitude,
       latitudeDelta: 0.8,
       longitudeDelta: 0.8,
     };
@@ -54,9 +70,9 @@ const ResultsScreen = () => {
           latitudeDelta: 0.8,
           longitudeDelta: 0.8,
         }}>
-        {places.map(place => (
+        {posts.map(place => (
           <MarkerComponent
-            coordinate={place.coordinate}
+            coordinate={{latitude: place.latitude, longitude: place.longitude}}
             price={place.newPrice}
             isSelected={place.id === selectedPlaceId}
             onPress={() => setSelectedPlaceId(place.id)}
@@ -67,7 +83,7 @@ const ResultsScreen = () => {
       <View style={{position: 'absolute', bottom: 30}}>
         <FlatList
           ref={flatlist}
-          data={places}
+          data={posts}
           keyExtractor={item => item.id.toString()}
           horizontal
           snapToInterval={WIDTH - 70}

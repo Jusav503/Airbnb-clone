@@ -1,0 +1,14 @@
+{
+  "version": 1,
+  "serviceConfiguration": {
+    "apiName": "airbnb",
+    "serviceName": "AppSync",
+    "gqlSchemaPath": "C:\\Users\\ariel\\rnprojects\\airbnb\\amplify\\backend\\api\\airbnb\\schema.graphql",
+    "defaultAuthType": {
+      "mode": "API_KEY",
+      "expirationTime": 353,
+      "apiKeyExpirationDate": "2023-02-23T18:04:10.680Z",
+      "keyDescription": ""
+    }
+  }
+}
