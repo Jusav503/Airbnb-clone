@@ -2,13 +2,17 @@ import {View, FlatList, Dimensions} from 'react-native';
 import MapView, {PROVIDER_GOOGLE} from 'react-native-maps';
 import React, {useState, useEffect, useRef} from 'react';
 import {API, graphqlOperation} from 'aws-amplify';
-import {listPosts} from '../../graphql/queries';
+import {useRoute} from '@react-navigation/native';
 
+import {listPosts} from '../../graphql/queries';
 import Header from '../../components/Header';
 import MarkerComponent from './components/MarkerComponent';
 import MapListPostComponent from './components/MapListPostComponent';
 
 const ResultsScreen = () => {
+  const route = useRoute();
+  const {guests} = route.params;
+
   const [selectedPlaceId, setSelectedPlaceId] = useState(null);
   const flatlist = useRef();
   const map = useRef();
@@ -18,7 +22,15 @@ const ResultsScreen = () => {
   useEffect(() => {
     const fetchPosts = async () => {
       try {
-        const fetchedPosts = await API.graphql(graphqlOperation(listPosts));
+        const fetchedPosts = await API.graphql(
+          graphqlOperation(listPosts, {
+            filter: {
+              maxGuests: {
+                ge: guests,
+              },
+            },
+          }),
+        );
         setPosts(fetchedPosts.data.listPosts.items);
       } catch (e) {
         console.log(e);
@@ -79,12 +91,12 @@ const ResultsScreen = () => {
           />
         ))}
       </MapView>
-      
+
       <View style={{position: 'absolute', bottom: 30}}>
         <FlatList
           ref={flatlist}
           data={posts}
-          keyExtractor={item => item.id.toString()}
+          keyExtractor={item => item.id}
           horizontal
           snapToInterval={WIDTH - 70}
           decelerationRate={'fast'}

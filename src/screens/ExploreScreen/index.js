@@ -1,4 +1,4 @@
-import { View, FlatList} from 'react-native';
+import {View, FlatList} from 'react-native';
 import React, {useState, useEffect} from 'react';
 import {API, graphqlOperation} from 'aws-amplify';
 import {listPosts} from '../../graphql/queries';
